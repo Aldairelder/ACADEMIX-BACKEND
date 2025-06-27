@@ -1,0 +1,17 @@
+
+PGPASSWORD=Bc8ga4w6Qty0QF2W3t6ttXVARIkAqudz psql -h dpg-d1ff1e1r0fns73cq7h90-a.oregon-postgres.render.com -U prueba1_w3kg_user prueba1_w3kg}
+
+CONTRASEÑA: Bc8ga4w6Qty0QF2W3t6ttXVARIkAqudz
+HOST: dpg-d1ff1e1r0fns73cq7h90-a.oregon-postgres.render.com
+USUARIO: prueba1_w3kg_user
+DATABSE :prueba1_w3kg
+
+
+
+PGPASSWORD=cp5UsJgy4ztJW7s9xCbwDBnjxshL0cCJ psql -h dpg-d1ff8sali9vc739vv190-a.oregon-postgres.render.com -U elder gestion_academica_ud3u
+
+
+CONTRASEÑA: cp5UsJgy4ztJW7s9xCbwDBnjxshL0cCJ
+HOST: dpg-d1ff8sali9vc739vv190-a.oregon-postgres.render.com
+USUARIO: elder
+DATABSE: gestion_academica_ud3u
