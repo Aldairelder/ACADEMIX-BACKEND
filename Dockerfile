@@ -1,7 +1,6 @@
-# Usa una imagen base PHP de Alpine para ser ligero y con PHP-FPM
 FROM php:8.2-fpm-alpine
 
-# Instala dependencias del sistema necesarias
+# Instala dependencias necesarias
 RUN apk add --no-cache \
     nginx \
     nodejs \
@@ -14,34 +13,36 @@ RUN apk add --no-cache \
     docker-php-ext-install pdo_mysql pdo_pgsql && \
     rm -rf /var/cache/apk/*
 
-# Instala Composer globalmente
+# Instala Composer
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
-# Define el directorio de trabajo dentro del contenedor
+# Directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos de la aplicación al contenedor
+# Copia todo el proyecto
 COPY . /app
 
-# Instala dependencias de Composer (¡solo las de producción!)
+# Instala dependencias PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Si usas NPM (Vite/Laravel Mix) para tu frontend, instala dependencias y compila assets
+# Instala dependencias frontend y compila assets
 RUN npm install && npm run build
 
-# Configura los permisos para los directorios de Laravel
+# Permisos de Laravel
 RUN chown -R www-data:www-data /app \
     && chmod -R 775 /app/storage \
     && chmod -R 775 /app/bootstrap/cache
 
-# Copia la configuración de Nginx al contenedor
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+# Crea los logs de nginx (opcional pero recomendado)
+RUN mkdir -p /var/log/nginx && touch /var/log/nginx/access.log /var/log/nginx/error.log
 
-# Copia la configuración de Supervisor al contenedor
+# Copia configs de Nginx y Supervisor
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expone los puertos que Nginx (80) y PHP-FPM (9000) usarán dentro del contenedor
+# Expone puertos
 EXPOSE 80 9000
 
-# Comando principal que se ejecutará cuando el contenedor se inicie
+# Comando de arranque
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
