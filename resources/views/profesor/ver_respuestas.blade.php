@@ -13,7 +13,7 @@
             <h4 class="card-title">{{ $foro->titulo }}</h4>
             <p class="card-text">{!! nl2br(e($foro->contenido)) !!}</p>
             @if(!empty($foro->archivo))
-                <p><a href="{{ asset('storage/uploads/foros/' . $foro->archivo) }}" target="_blank" class="btn btn-link">📎 Ver archivo del foro</a></p>
+                <p><a href="https://academix-backend-sh77.onrender.com/storage/uploads/foros/{{ $foro->archivo }}" target="_blank" class="btn btn-link">📎 Ver archivo del foro</a></p>
             @endif
             <small class="text-muted">📅 Publicado el {{ $foro->fecha_publicacion }}</small>
         </div>
@@ -31,7 +31,7 @@
                                     <p class="mb-1"><strong>{{ $r->nombre }} {{ $r->apellido }}</strong></p>
                                     <p>{!! nl2br(e($r->contenido)) !!}</p>
                                     @if($r->archivo)
-                                        <p><a href="{{ asset('storage/uploads/foros/' . $r->archivo) }}" target="_blank">📎 Ver adjunto</a></p>
+                                        <p><a href="https://academix-backend-sh77.onrender.com/storage/uploads/foros/{{ $r->archivo }}" target="_blank">📎 Ver adjunto</a></p>
                                     @endif
                                     <small class="text-muted">📅 {{ $r->fecha_respuesta }}</small>
                                 </div>

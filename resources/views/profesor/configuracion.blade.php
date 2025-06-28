@@ -6,7 +6,7 @@
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-    <form method="POST" class="card p-4 shadow-sm bg-white">
+    <form method="POST" action="{{ route('profesor.configuracion') }}" class="card p-4 shadow-sm bg-white">
         @csrf
         <div class="mb-3">
             <label class="form-label">Nombre</label>

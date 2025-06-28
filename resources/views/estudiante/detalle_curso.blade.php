@@ -33,10 +33,10 @@
                         <div class="accordion-body">
                           <div class="mb-2"><span class="fw-bold">Descripción:</span> {{ $m->descripcion }}</div>
                           @if($m->archivo)
-                              <a href="{{ asset('storage/uploads/materiales/'.$m->archivo) }}" target="_blank" class="btn btn-outline-primary btn-sm mb-2"><i class="fa fa-paperclip"></i> Ver archivo</a>
+                              <a href="https://academix-backend-sh77.onrender.com/storage/uploads/materiales/{{ $m->archivo }}" target="_blank" class="btn btn-outline-primary btn-sm mb-2"><i class="fa fa-paperclip"></i> Ver archivo</a>
                               <div class="mb-2"><span class="badge bg-primary bg-opacity-25 text-dark"><i class="fa fa-file-pdf me-1"></i>{{ $m->archivo }}</span></div>
                               <div class="mb-3 border rounded overflow-auto" style="height:480px;">
-                                <iframe src="{{ asset('storage/uploads/materiales/'.$m->archivo) }}#toolbar=0" style="width:100%;height:470px;border:none;"></iframe>
+                                <iframe src="https://academix-backend-sh77.onrender.com/storage/uploads/materiales/{{ $m->archivo }}#toolbar=0" style="width:100%;height:470px;border:none;"></iframe>
                               </div>
                           @endif
                           <div class="text-end"><small class="text-muted">📅 {{ $m->fecha_subida }}</small></div>
@@ -70,10 +70,10 @@
                         <div class="accordion-body">
                           <div class="mb-2"><span class="fw-bold">Descripción:</span> {{ $e->descripcion }}</div>
                           @if($e->archivo)
-                              <a href="{{ asset('storage/uploads/evaluaciones/'.$e->archivo) }}" target="_blank" class="btn btn-outline-primary btn-sm mb-2"><i class="fa fa-paperclip"></i> Ver Evaluación</a><br>
+                              <a href="https://academix-backend-sh77.onrender.com/storage/uploads/evaluaciones/{{ $e->archivo }}" target="_blank" class="btn btn-outline-primary btn-sm mb-2"><i class="fa fa-paperclip"></i> Ver Evaluación</a><br>
                               <span class="badge bg-primary bg-opacity-25 text-dark mb-2"><i class="fa fa-file-pdf me-1"></i>{{ $e->archivo }}</span>
                               <div class="mb-3 border rounded overflow-auto" style="height:480px;">
-                                <iframe src="{{ asset('storage/uploads/evaluaciones/'.$e->archivo) }}#toolbar=0" style="width:100%;height:470px;border:none;"></iframe>
+                                <iframe src="https://academix-backend-sh77.onrender.com/storage/uploads/evaluaciones/{{ $e->archivo }}#toolbar=0" style="width:100%;height:470px;border:none;"></iframe>
                               </div>
                           @endif
                           @if($nota_eval)
@@ -85,7 +85,7 @@
                           <small class="text-muted">📅 {{ $e->fecha }}</small>
                           @if($entrega)
                               <div class="mt-2 p-2 bg-success bg-opacity-25 rounded">
-                                  <span class="fw-bold text-success"><i class="fa fa-check-circle"></i> Entregado:</span> <a href="{{ asset('storage/uploads/entregas/'.$entrega->archivo) }}" target="_blank"> {{ $entrega->archivo }}</a><br>
+                                  <span class="fw-bold text-success"><i class="fa fa-check-circle"></i> Entregado:</span> <a href="https://academix-backend-sh77.onrender.com/storage/uploads/entregas/{{ $entrega->archivo }}" target="_blank"> {{ $entrega->archivo }}</a><br>
                                   <small>📝 {{ $entrega->descripcion }}</small><br>
                                   <small>📥 {{ $entrega->fecha_entrega }}</small><br>
                                   @if(!$nota_eval)
@@ -135,7 +135,7 @@
                         <div class="accordion-body">
                             <div class="mb-2"><span class="fw-bold">Contenido:</span> {!! nl2br(e($f->contenido)) !!}</div>
                             @if($f->archivo)
-                                <a href="{{ asset('storage/uploads/foros/'.$f->archivo) }}" target="_blank" class="btn btn-outline-primary btn-sm mb-2"><i class="fa fa-paperclip"></i> Ver archivo</a>
+                                <a href="https://academix-backend-sh77.onrender.com/storage/uploads/foros/{{ $f->archivo }}" target="_blank" class="btn btn-outline-primary btn-sm mb-2"><i class="fa fa-paperclip"></i> Ver archivo</a>
                             @endif
                             @if($nota_foro)
                               <div class="alert alert-info fw-bold fs-5">
@@ -161,7 +161,7 @@
                                     <strong class="text-info"><i class="fa fa-user-circle me-1"></i>{{ $r->nombre }} {{ $r->apellido }}</strong>:
                                     {!! nl2br(e($r->contenido)) !!}<br>
                                     @if($r->archivo)
-                                        <a href="{{ asset('storage/uploads/foros/'.$r->archivo) }}" target="_blank"><i class="fa fa-paperclip"></i> Archivo adjunto</a><br>
+                                        <a href="https://academix-backend-sh77.onrender.com/storage/uploads/foros/{{ $r->archivo }}" target="_blank"><i class="fa fa-paperclip"></i> Archivo adjunto</a><br>
                                     @endif
                                     <small class="text-muted">{{ $r->fecha_respuesta }}</small>
                                     @if($r->estudiante_id == session('usuario_id') && !$nota_foro)

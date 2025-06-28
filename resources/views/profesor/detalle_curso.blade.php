@@ -42,7 +42,7 @@
                             <strong>{{ $m->titulo }}</strong><br>
                             {{ $m->descripcion }}<br>
                             @if($m->archivo)
-                                <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.open('{{ asset('storage/uploads/materiales/'.$m->archivo) }}', '_blank')">📎 Ver archivo</button>
+                                <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.open('https://academix-backend-sh77.onrender.com/storage/uploads/materiales/{{ $m->archivo }}', '_blank')">📎 Ver archivo</button>
                             @endif
                             <div class="text-muted"><small>📅 {{ $m->fecha_subida }}</small></div>
                             <a href="?edit_material={{ $m->id_material }}&tab=materiales#materiales" class="btn btn-outline-warning btn-sm mt-2"><i class="fa fa-edit"></i> Editar</a>
@@ -94,7 +94,7 @@
                             {{ $e->descripcion }}<br>
                             <small class="text-muted">📅 {{ $e->fecha }}</small><br>
                             @if($e->archivo)
-                                <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.open('{{ asset('storage/uploads/evaluaciones/'.$e->archivo) }}', '_blank')">📎 Ver archivo</button>
+                                <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.open('https://academix-backend-sh77.onrender.com/storage/uploads/evaluaciones/{{ $e->archivo }}', '_blank')">📎 Ver archivo</button>
                             @endif
                             <a href="{{ route('profesor.ver_entregas', $e->id_evaluacion) }}" class="btn btn-outline-secondary btn-sm mt-2">📂 Ver entregas</a>
                             <a href="?edit_eval={{ $e->id_evaluacion }}&tab=evaluaciones" class="btn btn-outline-warning btn-sm mt-2"><i class="fa fa-edit"></i> Editar</a>
@@ -146,7 +146,7 @@
                             {{ $f->contenido }}<br>
                             <small class="text-muted">📅 {{ $f->fecha_publicacion }}</small><br>
                             @if($f->archivo)
-                                <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.open('{{ asset('storage/uploads/foros/'.$f->archivo) }}', '_blank')">📎 Ver archivo</button>
+                                <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.open('https://academix-backend-sh77.onrender.com/storage/uploads/foros/{{ $f->archivo }}', '_blank')">📎 Ver archivo</button>
                             @endif
                             <a href="{{ route('profesor.ver_respuestas', $f->id_foro) }}" class="btn btn-outline-info btn-sm mt-2">📂 Ver respuestas</a>
                             <a href="?edit_foro={{ $f->id_foro }}&tab=foros" class="btn btn-outline-warning btn-sm mt-2"><i class="fa fa-edit"></i> Editar</a>

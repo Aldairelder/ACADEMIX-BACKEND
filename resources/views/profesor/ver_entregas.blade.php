@@ -32,7 +32,7 @@
                                     <strong>{{ $e->nombre }} {{ $e->apellido }}</strong><br>
                                     {{ $e->descripcion }}<br>
                                     @if($e->archivo)
-                                        <a href="{{ asset('storage/uploads/entregas/' . $e->archivo) }}" target="_blank">📎 Ver entrega</a><br>
+                                        <a href="https://academix-backend-sh77.onrender.com/storage/uploads/entregas/{{ $e->archivo }}" target="_blank">📎 Ver entrega</a><br>
                                     @endif
                                     @if(isset($e->nota))
                                         <div class="text-success fw-bold mt-2">Nota registrada: {{ $e->nota }}</div>
