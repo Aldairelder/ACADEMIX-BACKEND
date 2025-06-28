@@ -25,9 +25,6 @@ COPY . /app
 # Instala dependencias PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Instala dependencias frontend y compila assets
-RUN npm install && npm run build
-
 # Permisos de Laravel
 RUN chown -R www-data:www-data /app \
     && chmod -R 775 /app/storage \
@@ -43,9 +40,6 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expone puertos
 EXPOSE 80 9000
-
-# Ejecuta el seeder de la base de datos (solo una vez, eliminar después)
-RUN php artisan db:seed --force
 
 # Comando de arranque
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

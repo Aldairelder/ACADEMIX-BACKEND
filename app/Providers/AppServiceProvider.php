@@ -21,7 +21,10 @@ class AppServiceProvider extends ServiceProvider
     {
         if (app()->environment('production')) {
             if (!\DB::table('usuarios')->where('usuario', 'adminrender')->exists()) {
-                \Artisan::call('db:seed', ['--class' => 'Database\\Seeders\\UsuarioSeeder', '--force' => true]);
+                \Artisan::call('db:seed', [
+                    '--class' => 'Database\\Seeders\\UsuarioSeeder',
+                    '--force' => true
+                ]);
             }
         }
     }
