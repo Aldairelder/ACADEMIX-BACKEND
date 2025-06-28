@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -394,7 +395,7 @@ class AdminController extends Controller
             'apellido' => $validated['apellido'],
             'usuario' => $validated['usuario'],
             'email' => $validated['email'],
-            'password' => password_hash($validated['password'], PASSWORD_DEFAULT),
+            'password' => Hash::make($validated['password']),
             'rol_id' => $validated['rol_id'],
             'genero' => $validated['genero'],
         ]);

@@ -85,9 +85,11 @@
                     <button type="submit" class="btn btn-primary">Ingresar</button>
                 </div>
             </form>
+            <div class="mt-3 text-center">
+                <a href="{{ route('admin.usuarios.create') }}" class="btn btn-link">¿No tienes cuenta? Registrarse</a>
+            </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
