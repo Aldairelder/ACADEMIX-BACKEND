@@ -37,9 +37,11 @@ RUN mkdir -p /var/log/nginx && touch /var/log/nginx/access.log /var/log/nginx/er
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Aumenta el tamaño máximo de subida de archivos en PHP
+RUN echo "upload_max_filesize=20M\npost_max_size=20M" > /usr/local/etc/php/conf.d/uploads.ini
+
 # Expone puertos
 EXPOSE 80 9000
 
 # Comando de arranque
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

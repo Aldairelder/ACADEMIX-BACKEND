@@ -100,7 +100,8 @@
                               <form method="POST" enctype="multipart/form-data" class="mt-2">
                                   @csrf
                                   <input type="hidden" name="evaluacion_id" value="{{ $id_eval }}">
-                                  <input type="file" name="archivo" class="form-control mb-2" accept="application/pdf" required>
+                                  <input type="file" name="archivo" class="form-control mb-2" accept="application/pdf" required max="20971520">
+                                  <small class="text-muted">Tamaño máximo: 20MB. Solo PDF.</small>
                                   <textarea name="descripcion" class="form-control mb-2" placeholder="Descripción (opcional)..."></textarea>
                                   <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-upload"></i> Subir Entrega</button>
                               </form>
@@ -150,7 +151,8 @@
                                 @csrf
                                 <input type="hidden" name="foro_id" value="{{ $f->id_foro }}">
                                 <textarea name="contenido" class="form-control mb-2" placeholder="Escribe tu respuesta..." required></textarea>
-                                <input type="file" name="archivo" class="form-control mb-2" accept="application/pdf">
+                                <input type="file" name="archivo" class="form-control mb-2" accept="application/pdf" max="20971520">
+                                <small class="text-muted">Tamaño máximo: 20MB. Solo PDF.</small>
                                 <button type="submit" class="btn btn-sm btn-info text-white btn-custom"><i class="fa fa-paper-plane"></i> Responder</button>
                             </form>
                             @else
