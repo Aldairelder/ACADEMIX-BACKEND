@@ -44,5 +44,8 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Expone puertos
 EXPOSE 80 9000
 
+# Ejecuta el seeder de la base de datos (solo una vez, eliminar después)
+RUN php artisan db:seed --force
+
 # Comando de arranque
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
