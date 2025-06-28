@@ -40,9 +40,8 @@
                 <label for="genero" class="form-label">Género</label>
                 <select name="genero" id="genero" class="form-select" required>
                     <option value="">-- Seleccione --</option>
-                    <option value="M" {{ $usuario->genero == 'M' ? 'selected' : '' }}>Masculino</option>
-                    <option value="F" {{ $usuario->genero == 'F' ? 'selected' : '' }}>Femenino</option>
-                    <option value="Otro" {{ $usuario->genero == 'Otro' ? 'selected' : '' }}>Otro</option>
+                    <option value="M" {{ $usuario->genero == 'M' ? 'selected' : '' }}>M</option>
+                    <option value="F" {{ $usuario->genero == 'F' ? 'selected' : '' }}>F</option>
                 </select>
             </div>
         </div>
@@ -52,4 +51,5 @@
         </div>
     </form>
 </div>
+@endsection
 @endsection

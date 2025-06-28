@@ -39,9 +39,8 @@
                 <label for="genero" class="form-label">Género</label>
                 <select name="genero" id="genero" class="form-select" required>
                     <option value="">-- Seleccione --</option>
-                    <option value="M">Masculino</option>
-                    <option value="F">Femenino</option>
-                    <option value="Otro">Otro</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
                 </select>
             </div>
         </div>
@@ -51,4 +50,67 @@
         </div>
     </form>
 </div>
+
+<!-- Modal de éxito -->
+<div class="modal fade" id="modalSuccess" tabindex="-1" aria-labelledby="modalSuccessLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="modalSuccessLabel">¡Éxito!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        {{ session('success') }}
+      </div>
+      <div class="modal-footer">
+        <a href="{{ route('admin.usuarios.index') }}" class="btn btn-success">Aceptar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de error -->
+<div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="modalErrorLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="modalErrorLabel">Error</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        @if($errors->any())
+            {{ $errors->first() }}
+        @else
+            {{ session('error') }}
+        @endif
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    @if(session('success'))
+        var modal = new bootstrap.Modal(document.getElementById('modalSuccess'));
+        modal.show();
+    @elseif($errors->any() || session('error'))
+        var modal = new bootstrap.Modal(document.getElementById('modalError'));
+        modal.show();
+    @endif
+});
+</script>
+@endpush
+
+@push('styles')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@endpush
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@endpush

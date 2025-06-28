@@ -29,7 +29,6 @@
             <select name="genero" class="form-control" required>
                 <option value="M" @if((old('genero', $usuario->genero ?? '')=='M')) selected @endif>Masculino</option>
                 <option value="F" @if((old('genero', $usuario->genero ?? '')=='F')) selected @endif>Femenino</option>
-                <option value="Otro" @if((old('genero', $usuario->genero ?? '')=='Otro')) selected @endif>Otro</option>
             </select>
         </div>
         <div class="mb-3">
@@ -41,4 +40,5 @@
         </button>
     </form>
 </main>
+@endsection
 @endsection

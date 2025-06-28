@@ -388,16 +388,16 @@ class AdminController extends Controller
             'email' => 'required|email|unique:usuarios,email',
             'password' => 'required|string|min:6',
             'rol_id' => 'required|integer',
-            'genero' => 'required|string',
+            'genero' => 'required|in:M,F',
         ]);
         \DB::table('usuarios')->insert([
             'nombre' => $validated['nombre'],
             'apellido' => $validated['apellido'],
             'usuario' => $validated['usuario'],
             'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
+            'password' => \Hash::make($validated['password']),
             'rol_id' => $validated['rol_id'],
-            'genero' => $validated['genero'],
+            'genero' => $validated['genero'], // Solo M o F
         ]);
         return redirect()->route('admin.usuarios.index')->with('success', 'Usuario registrado correctamente.');
     }
