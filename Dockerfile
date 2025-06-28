@@ -35,11 +35,11 @@ RUN mkdir -p /var/log/nginx && touch /var/log/nginx/access.log /var/log/nginx/er
 
 # Copia configs de Nginx y Supervisor
 COPY docker/nginx.conf /etc/nginx/nginx.conf
-
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expone puertos
 EXPOSE 80 9000
 
 # Comando de arranque
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
