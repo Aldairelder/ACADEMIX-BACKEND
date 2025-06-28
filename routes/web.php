@@ -33,6 +33,7 @@ Route::get('admin/panel', function() {
 })->name('admin.panel');
 Route::get('admin/usuarios', [AdminController::class, 'usuariosIndex'])->name('admin.usuarios.index');
 Route::get('admin/usuarios/create', [App\Http\Controllers\AdminController::class, 'createUsuario'])->name('admin.usuarios.create');
+Route::post('admin/usuarios', [App\Http\Controllers\AdminController::class, 'storeUsuario'])->name('admin.usuarios.store');
 Route::get('admin/usuarios/{id}/edit', [App\Http\Controllers\AdminController::class, 'editUsuario'])->name('admin.usuarios.edit');
 Route::delete('admin/usuarios/{id}', [App\Http\Controllers\AdminController::class, 'destroyUsuario'])->name('admin.usuarios.destroy');
 Route::patch('admin/usuarios/{id}', [App\Http\Controllers\AdminController::class, 'updateUsuario'])->name('admin.usuarios.update');

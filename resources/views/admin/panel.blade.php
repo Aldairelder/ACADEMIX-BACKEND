@@ -55,5 +55,13 @@
             </a>
         </div>
     </div>
+    <div class="row g-4 mt-4">
+        <div class="col-md-4">
+            <a href="{{ route('admin.usuarios.create') }}" class="card card-body text-center shadow-sm h-100 text-decoration-none">
+                <i class="fas fa-user-plus fa-2x mb-2 text-success"></i>
+                <span class="fw-bold">Registrar Usuario</span>
+            </a>
+        </div>
+    </div>
 </div>
 @endsection

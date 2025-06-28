@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-4">
     <h2 class="mb-4">Registrar Usuario</h2>
-    <form action="#" method="POST">
+    <form action="{{ route('admin.usuarios.store') }}" method="POST">
         @csrf
         <div class="row g-3">
             <div class="col-md-6">
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="mt-4">
-            <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Registrar</button>
+            <button type="submit" class="btn btn-success"><i class="fas fa-user-plus me-2"></i>Registrar</button>
             <a href="{{ route('admin.usuarios.index') }}" class="btn btn-secondary">Cancelar</a>
         </div>
     </form>

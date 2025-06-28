@@ -1,6 +1,7 @@
 <!-- resources/views/login.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +50,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="login-container">
         <div class="login-card">
@@ -56,13 +58,13 @@
             <h5 class="text-center mb-4">Iniciar Sesión</h5>
 
             @if($errors->any())
-                <div class="alert alert-danger text-center">
+                <div class="alert alert-danger">
                     {{ $errors->first() }}
                 </div>
             @endif
 
             @if(session('success'))
-                <div class="alert alert-success text-center">
+                <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
             @endif

@@ -377,4 +377,27 @@ class AdminController extends Controller
         \DB::table('usuarios')->where('id', $id)->update($updateData);
         return redirect()->route('admin.usuarios.index')->with('success', 'Usuario actualizado correctamente.');
     }
+    
+    public function storeUsuario(Request $request)
+    {
+        $validated = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'usuario' => 'required|string|max:255|unique:usuarios,usuario',
+            'email' => 'required|email|unique:usuarios,email',
+            'password' => 'required|string|min:6',
+            'rol_id' => 'required|integer',
+            'genero' => 'required|string',
+        ]);
+        \DB::table('usuarios')->insert([
+            'nombre' => $validated['nombre'],
+            'apellido' => $validated['apellido'],
+            'usuario' => $validated['usuario'],
+            'email' => $validated['email'],
+            'password' => password_hash($validated['password'], PASSWORD_DEFAULT),
+            'rol_id' => $validated['rol_id'],
+            'genero' => $validated['genero'],
+        ]);
+        return redirect()->route('admin.usuarios.index')->with('success', 'Usuario registrado correctamente.');
+    }
 }
